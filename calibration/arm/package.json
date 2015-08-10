@@ -1,0 +1,11 @@
+{
+    "name": "ArmCalibrator",
+    "description": "Simple web app to find servo positions",
+    "author": "grassjelly",
+    "dependencies": {
+        "express": "4.11.x",
+        "socket.io": "1.3.x",
+        "serialport": "1.7.x"
+    },
+    "engine": "node >= 0.10.29"
+}

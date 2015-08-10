@@ -1,0 +1,104 @@
+<!--http://loopj.com/jquery-simple-slider/-->
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="./simpler-slider/js/simple-slider.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+
+  <link href="./simpler-slider/css/simple-slider.css" rel="stylesheet" type="text/css" />
+  <link href="./simpler-slider/css/simple-slider-volume.css" rel="stylesheet" type="text/css" />
+
+  <!-- These styles are only used for this page, not required for the slider -->
+  <style>
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  [class^=slider] { display: inline-block; margin-bottom: 30px; }
+  .output { color: #888; font-size: 14px; padding-top: 1px; margin-left: 5px; vertical-align: top;}
+  h1 { font-size: 20px; }
+  h2 { clear: both; margin: 0; margin-bottom: 5px; font-size: 16px; }
+  p { font-size: 15px; margin-bottom: 30px; }
+  h2:first-of-type { margin-top: 0; }
+  </style>
+
+</head>
+
+<body>
+  <h1>Slide to get servo positions</h1>
+
+  <h2>GRIP</h2>
+  <input  value="90	" data-slider-step="1" data-slider-range="80,140" id="grip" type="text" data-slider="true" data-slider-theme="volume">
+  <h2>WRIST</h2>
+  <input  value="80" data-slider-step="1" data-slider-range="0,179" id="wrist" type="text" data-slider="true" data-slider-theme="volume">
+  <h2>HAND</h2>
+  <input  value="140" data-slider-step="1" data-slider-range="0,179" id="hand" type="text" data-slider="true" data-slider-theme="volume">
+  <h2>ELBOW</h2>
+  <input  value="135" data-slider-step="1" data-slider-range="0,180" id="elbow" type="text" data-slider="true" data-slider-theme="volume">
+  <h2>SHOULDER</h2>
+  <input  value="120" data-slider-step="1" data-slider-range="0,179" id="shoulder" type="text" data-slider="true" data-slider-theme="volume">
+  <h2>TWIST</h2>
+  <input  value="0" data-slider-step="1" data-slider-range="0,179" id="twist" type="text" data-slider="true" data-slider-theme="volume">
+<script>
+
+   var socket = io.connect(); // let socket.io autodiscover the server
+
+  $("[data-slider]")
+    .each(function () {
+      var input = $(this);
+      $("<span>")
+        .addClass("output")
+        .insertAfter($(this));
+    })
+    .bind("slider:ready slider:changed", function (event, data) {
+      $(this)
+        .nextAll(".output:first")
+          .html(data.value.toFixed(3));
+    });
+
+    $("#grip").bind("slider:changed", function (event, data) {
+ 		 // The currently selected value of the slider
+  		console.log(data.value);
+  		socket.emit("grip",data.value);
+	});
+
+    $("#hand").bind("slider:changed", function (event, data) {
+  		// The currently selected value of the slider
+		console.log(data.value);
+		socket.emit("hand",data.value);
+
+	});
+
+
+	$("#wrist").bind("slider:changed", function (event, data) {
+  		// The currently selected value of the slider
+		console.log(data.value);
+		socket.emit("wrist",data.value);
+
+	});
+
+	$("#elbow")
+	.bind("slider:changed", function (event, data) {
+  		// The currently selected value of the slider
+		console.log(data.value);
+		socket.emit("elbow",data.value);
+
+	});
+
+	$("#shoulder").bind("slider:changed", function (event, data) {
+  		// The currently selected value of the slider
+
+		console.log(data.value);
+		socket.emit("shoulder",data.value);
+
+	});
+  $("#twist").bind("slider:changed", function (event, data) {
+  		// The currently selected value of the slider
+
+		console.log(data.value);
+		socket.emit("twist",data.value);
+
+	});
+
+  </script>
+
+</body>
+</html>
