@@ -6,7 +6,7 @@ This is an implementation of Minimax algorithm and OpenCV's Hough Circle Transfo
 - Hough Circle Transform http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html
 
 #CALIBRATION
-CAMERA
+CAMERA<br />
 1. Run
 ```
 python robo_tictactoe/calibration/camera/calibrate.py
@@ -29,7 +29,7 @@ width  = width of Tictactoe box in pixels <br />
 height = width of Tictactoe box in pixels <br />
 
 
-ROBOTIC ARM
+ROBOTIC ARM<br />
 1. Install node modules
 ```
 cd robo_tictactoe/calibration/arm/
