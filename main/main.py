@@ -26,7 +26,7 @@ def drawCircles(image, x , y, r):
     cv2.rectangle(image, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
 
 def findMove(image, circles):
-    # Returns the move of the opponent.
+    # Returns the opponent's move.
 
     # convert coordinates to integer
     circles = np.round(circles[0, :]).astype("int")
@@ -36,7 +36,7 @@ def findMove(image, circles):
     for (x, y, r) in circles:
 
         isMoved = True
-        # check which region the found circle belongs to
+        # check which region the circle belongs to
         if((x >= regions.minX) and (x <= regions.maxX)) and ((y >= regions.minY) and (y <= regions.maxY)):
             region = regions.checkRegion(x,y)
         else:
@@ -44,7 +44,7 @@ def findMove(image, circles):
 
         # iterate all available moves
         for move in board.availableMoves():
-            # if the region has'nt been occupied, take it as the opponent's move
+            # if the region hasn't been occupied, take it as the opponent's move
             if move + 1  == region:
                 isMoved = False
                 break
