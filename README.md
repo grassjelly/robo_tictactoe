@@ -8,14 +8,14 @@ This is an implementation of Minimax algorithm and OpenCV's Hough Circle Transfo
 #CALIBRATION
 CAMERA<br />
 <br />
-1. Run
+- Run
 ```
 python robo_tictactoe/calibration/camera/calibrate.py
 ```
 
-2. Place a circle on the top-left corner of your Tictactoe box and get the coordinates printed on the command line.
+- Place a circle on the top-left corner of your Tictactoe box and get the coordinates printed on the command line.
 
-3. Edit
+- Edit
 ```
 sudo nano robo_tictactoe/main/main.py
 ```
@@ -32,20 +32,20 @@ height = width of Tictactoe box in pixels <br />
 
 ROBOTIC ARM<br />
 <br />
-1. Install node modules
+- Install node modules
 ```
 cd robo_tictactoe/calibration/arm/
 sudo npm install
 ```
 
-2. Run the server
+- Run the server
 ```
 node server.js
 ```
 
-3. Move the sliders
+- Move the sliders
 
-4. Define all servo positions
+- Define all servo positions
 ```
 sudo nano robo_tictactoe/main/arm.py
 ```
