@@ -1,11 +1,11 @@
-#OVERVIEW
+# OVERVIEW
 
 This is an implementation of Minimax algorithm and OpenCV's Hough Circle Transform to create an autonomously tictactoe playing robotic arm.
 
 - Minimax Algorithm http://cwoebker.com/posts/tic-tac-toe
 - Hough Circle Transform http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html
 
-#CALIBRATION
+# CALIBRATION
 CAMERA<br />
 <br />
 - Run
@@ -50,7 +50,7 @@ node server.js
 sudo nano robo_tictactoe/main/arm.py
 ```
 
-#USAGE
+# USAGE
 Run
 ```
 python /robo_tictactoe/main/main.py
